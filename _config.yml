@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yuhang Zhang"
-description              : "PhD Candidate\nHydrology and Climate"
+description              : "PhD Candidate"
 repository               : "yohang-hydro/yohang-hydro.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -51,7 +51,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "https://twitter.com/YohangZhang"
+  twitter          : "YohangZhang"
   vine             :
   weibo            :
   xing             :
