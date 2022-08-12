@@ -23,13 +23,13 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Yuhang Zhang"
-  avatar           : "images/android-chrome-512x512.png"
+  avatar           : "images/photo.jpg"
   bio              : "Beijing Normal University"
   location         : "Beijing, China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=lvwCoy8AAAAJ"
-  email            : "yohangzhang@163.com"
+  email            : "zhangyh19@mail.bnu.edu.cn"
   researchgate     : "https://www.researchgate.net/profile/Yuhang-Zhang-7" # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
