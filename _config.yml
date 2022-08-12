@@ -7,8 +7,7 @@
 
 # Site Settings
 title                    : "Yuhang Zhang"
-description              :| "PhD Student
-                             Hydrology and Climate"
+description              : "PhD Candidate\nHydrology and Climate"
 repository               : "yohang-hydro/yohang-hydro.github.io"
 google_scholar_stats_use_cdn : true
 
