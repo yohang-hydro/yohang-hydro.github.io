@@ -1,3 +1,3 @@
-# 🔥 News
+# News
 - *2022.05*: Our new paper ["QRF4P‐NRT: Probabilistic Post‐Processing of Near‐Real‐Time Satellite Precipitation Estimates Using Quantile Regression Forests"](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022WR032117) is pubilished in Water Resources Research. This is my first WRR paper! Cheers and thanks to my advisor and great co-authors. 🎉🎉🎉
 - *2021.09*: Our new paper ["New Insights Into Error Decomposition for Precipitation Products"](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021GL094092) is pubilished in Geophysical Research Letters. This is my first GRL paper! Cheers and thanks to my advisor and great co-authors. 🎉🎉🎉
