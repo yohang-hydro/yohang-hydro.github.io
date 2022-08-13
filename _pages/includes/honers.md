@@ -1,3 +1,10 @@
 # Honors and Awards
-- *2021.10*: National Scholarship for Graduate Student, Ministry of Education
-- *2019.06*: Outstanding Graduate Student, Hohai University
+- *2022*: Outstanding Undergraduate Teaching Assistants, Beijing Normal University
+- *2021*: National Scholarship for Graduate Student, Ministry of Education of China
+- *2020, 2019*: First Prize of Academic Scholarship, Beijing Normal University
+- *2019*: Outstanding Graduate Student, Hohai University
+- *2017*: Second Prize of Academic Scholarship, Hohai University
+- *2017*: Outstanding Undergraduate Student, Shandong Province, China
+- *2017*: Outstanding Undergraduate Student, University of Jinan
+- *2017*: Second Prize of Academic Scholarship, University of Jinan
+- *2016, 2015, 2014*: First Prize of Academic Scholarship, University of Jinan
