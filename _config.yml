@@ -10,6 +10,9 @@ title                    : "Yuhang Zhang"
 description              : "PhD Candidate"
 repository               : "yohang-hydro/yohang-hydro.github.io"
 google_scholar_stats_use_cdn : true
+footer_text              : >
+  Powered by <a href="https://jekyllrb.com" target="_blank">Jekyll</a>.
+  Hosted by <a href="https://pages.github.com" target="_blank">Github Pages</a>.
 
 # google analytics
 google_analytics_id      :  lvwCoy8AAAAJ # get google_analytics_id from https://analytics.google.com/analytics/
