@@ -11,9 +11,9 @@
 ## Work Experience
 - *2021.9 - 2022.1*: Teaching Assistant (Course: Scientific computing using Python), Beijing Normal Univeristy, Zhuhai, China. (Awarded Outstanding Teaching Assistant)
 - *2020.9 - 2021.1*: Teaching Assistant (Course: Scientific computing using Python), Beijing Normal Univeristy, Zhuhai, China.
-- *2018.3 - 2018.12*: Research Intership, Beijing Water Science and Technology Institute, Beijing, China. Supervisor: Prof. [Xingyao Pan](https://www.bwsti.com/Articlepeopleshow.aspx?lmid=1114&cls=1061&cid=2703), [Moyuan Yang](https://www.bwsti.com/articlepeopleshow.aspx?lmid=1114&cls=1061&cid=3485) and [Lei Yu](https://www.bwsti.com/articlepeopleshow.aspx?lmid=1114&cls=1061&cid=3489)
+- *2018.3 - 2018.12*: Research Intership, Beijing Water Science and Technology Institute, Beijing, China. Supervisor: Profs. [Xingyao Pan](https://www.bwsti.com/Articlepeopleshow.aspx?lmid=1114&cls=1061&cid=2703), [Moyuan Yang](https://www.bwsti.com/articlepeopleshow.aspx?lmid=1114&cls=1061&cid=3485) and [Lei Yu](https://www.bwsti.com/articlepeopleshow.aspx?lmid=1114&cls=1061&cid=3489)
 
 ## Education Background
 - *2019.06 - present*: Ph.D. in physical geography, Beijing Normal University, Beijing, China. Supervisor: Prof. [Aizhong Ye](https://geot.bnu.edu.cn/Public/htm/news/5/799.html) [HomePage](http://www.hydromodel.cn/Faculty_Students/Faculty/ye.htm)
 - *2017.09 - 2019.06*: M.S. in Hydrology, Hohai University, Nanjing, Jiangsu, China.  Supervisor: Prof. [Tao Yang](https://shxy.hhu.edu.cn/2013/0429/c3303a45201/page.htm) 
-- *2013.09 - 2017.06*: B.S. in Hydrology and water resources, University of Jinan, Jinan, Shandong, China. Supervisor: Prof. [Guoqing Sang](http://zh.ujn.edu.cn/info/1111/9793.htm) and [Yongsen Wang](http://zh.ujn.edu.cn/info/1112/5572.htm)
+- *2013.09 - 2017.06*: B.S. in Hydrology and water resources, University of Jinan, Jinan, Shandong, China. Supervisor: Profs. [Guoqing Sang](http://zh.ujn.edu.cn/info/1111/9793.htm) and [Yongsen Wang](http://zh.ujn.edu.cn/info/1112/5572.htm)
