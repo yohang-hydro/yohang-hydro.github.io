@@ -3,6 +3,7 @@
 - *2021*: National Scholarship for Graduate Student, Ministry of Education of China
 - *2020, 2019*: First Prize of Academic Scholarship, Beijing Normal University
 - *2019*: Outstanding Graduate Student, Hohai University
+- *2019*: Outstanding Practice Prize for Graduate Student, Hohai University
 - *2017*: Second Prize of Academic Scholarship, Hohai University
 - *2017*: Outstanding Undergraduate Student, Shandong Province, China
 - *2017*: Outstanding Undergraduate Student, University of Jinan
