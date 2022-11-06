@@ -6,6 +6,7 @@
 2. He, S., Guo, S., Zhang, J., Liu, Z., Cui, Z., **Zhang, Y.**, and Zheng, Y. (2022). Multi-objective operation of cascade reservoirs based on short-term ensemble streamflow prediction. Journal of Hydrology, 127936. [https://doi.org/10.1016/j.jhydrol.2022.127936](https://doi.org/10.1016/j.jhydrol.2022.127936)
 3. Zhu, Y., Ye, A., **Zhang, Y.** (2022). Changes of total and artificial water bodies in inland China over the past three decades. Journal of Hydrology, 128344. [https://doi.org/10.1016/j.jhydrol.2022.128344](https://doi.org/10.1016/j.jhydrol.2022.128344)
 4. Li, Q.,  Ye, A., **Zhang, Y.**, Zhou, J. (2022). The Peer-To-Peer Type Propagation From Meteorological Drought to Soil Moisture Drought Occurs in Areas With Strong Land-Atmosphere Interaction. Water Resources Research, 58(9), e2022WR032846. [https://doi.org/10.1029/2022WR032846](https://doi.org/10.1029/2022WR032846)
+5. Xu, J., Gao, J., Liu, J., Tu, X., **Zhang, Y.** (2022). Assessment on spatiotemporal variations for minimum water consumption of vegetation in China based on constraint line method. Journal of Cleaner Production, 134680. https://doi.org/10.1016/j.jclepro.2022.134680
 
 ### 2021
 1. **Zhang, Y.**, Ye, A., Nguyen, P., Analui, B., Sorooshian, S., and Hsu, K. (2021). New insights into error decomposition for precipitation products. Geophysical Research Letters, 48,  e2021GL094092. [https://doi.org/10.1029/2021GL094092](https://doi.org/10.1029/2021GL094092)
