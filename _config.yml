@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yuhang Zhang"
-description              : "PhD Candidate"
+description              : "PhD"
 repository               : "yohang-hydro/yohang-hydro.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -27,12 +27,12 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Yuhang Zhang"
   avatar           : "images/photo.jpg"
-  bio              : "Beijing Normal University"
-  location         : "Beijing, China"
+  bio              : "The University of Melbourne"
+  location         : "Melbourne, VIC, Australia"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=lvwCoy8AAAAJ"
-  email            : "zhangyh19@mail.bnu.edu.cn"
+  email            : "yuhang.zhang12@unimelb.edu.au"
   researchgate     : "https://www.researchgate.net/profile/Yuhang-Zhang-7" # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
