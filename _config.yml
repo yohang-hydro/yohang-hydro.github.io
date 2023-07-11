@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yuhang Zhang"
-description              : "PhD"
+description              : "Hydrology, Climate and Machine learning."
 repository               : "yohang-hydro/yohang-hydro.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -27,7 +27,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Yuhang Zhang"
   avatar           : "images/photo.jpg"
-  bio              : "The University of Melbourne"
+  bio              : "PostDoc in The University of Melbourne"
   location         : "Melbourne, VIC, Australia"
   employer         :
   pubmed           : 
