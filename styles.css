@@ -1,3 +1,30 @@
+/* CSS Variables for Theme */
+:root {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #fff;
+    --bg-tertiary: #ecf0f1;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-tertiary: #2c3e50;
+    --accent-primary: #3498db;
+    --accent-secondary: #2c3e50;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-tertiary: #ffffff;
+    --accent-primary: #4a9eff;
+    --accent-secondary: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -8,8 +35,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -20,12 +48,13 @@ body {
 
 /* Header Styles */
 .header {
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-secondary);
+    box-shadow: 0 2px 10px var(--shadow-color);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar {
@@ -44,8 +73,9 @@ body {
 .nav-logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--text-tertiary);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .nav-menu {
@@ -55,7 +85,7 @@ body {
 }
 
 .nav-link {
-    color: #555;
+    color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -64,7 +94,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #3498db;
+    color: var(--accent-primary);
 }
 
 /* Hamburger Menu */
@@ -77,9 +107,47 @@ body {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: var(--text-primary);
     margin: 3px 0;
     transition: 0.3s;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.theme-btn {
+    background: none;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.theme-btn:hover {
+    background-color: var(--accent-primary);
+    transform: scale(1.1);
+}
+
+.theme-btn:hover .theme-icon {
+    filter: brightness(0) invert(1);
+}
+
+.theme-icon {
+    transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .theme-icon {
+    transform: rotate(180deg);
 }
 
 /* Main Content */
@@ -90,8 +158,9 @@ body {
 
 /* Welcome Section */
 .welcome-section {
-    background-color: #fff;
+    background-color: var(--bg-secondary);
     padding: 4rem 0;
+    transition: background-color 0.3s ease;
 }
 
 .profile-section {
@@ -116,26 +185,30 @@ body {
 
 .profile-name {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: var(--text-tertiary);
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .profile-title {
     font-size: 1.5rem;
-    color: #3498db;
+    color: var(--accent-primary);
     margin-bottom: 0.5rem;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .profile-affiliation {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .profile-email {
-    color: #3498db;
+    color: var(--accent-primary);
     margin-bottom: 2rem;
+    transition: color 0.3s ease;
 }
 
 .profile-bio,
@@ -145,14 +218,16 @@ body {
 
 .profile-bio h3,
 .profile-interests h3 {
-    color: #2c3e50;
+    color: var(--text-tertiary);
     margin-bottom: 1rem;
     font-size: 1.3rem;
+    transition: color 0.3s ease;
 }
 
 .profile-bio p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.7;
+    transition: color 0.3s ease;
 }
 
 .interests-list {
@@ -161,24 +236,27 @@ body {
 }
 
 .interests-list li {
-    background-color: #ecf0f1;
+    background-color: var(--bg-tertiary);
     padding: 0.5rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 5px;
-    color: #2c3e50;
+    color: var(--text-tertiary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* News Section */
 .news-section {
-    background-color: #f8f9fa;
+    background-color: var(--bg-primary);
     padding: 4rem 0;
+    transition: background-color 0.3s ease;
 }
 
 .section-title {
     font-size: 2rem;
-    color: #2c3e50;
+    color: var(--text-tertiary);
     text-align: center;
     margin-bottom: 3rem;
+    transition: color 0.3s ease;
 }
 
 .news-list {
@@ -187,37 +265,42 @@ body {
 }
 
 .news-item {
-    background-color: #fff;
+    background-color: var(--bg-secondary);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--shadow-color);
     display: grid;
     grid-template-columns: 150px 1fr;
     gap: 2rem;
     align-items: start;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .news-date {
-    color: #3498db;
+    color: var(--accent-primary);
     font-weight: bold;
     font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
 .news-content h3 {
-    color: #2c3e50;
+    color: var(--text-tertiary);
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .news-content p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
+    transition: color 0.3s ease;
 }
 
 /* Footer */
 .footer {
-    background-color: #2c3e50;
-    color: #fff;
+    background-color: var(--accent-secondary);
+    color: var(--bg-secondary);
     padding: 2rem 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-content {
@@ -232,13 +315,13 @@ body {
 }
 
 .footer-links a {
-    color: #ecf0f1;
+    color: var(--bg-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #3498db;
+    color: var(--accent-primary);
 }
 
 /* Responsive Design */
@@ -248,11 +331,11 @@ body {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: #fff;
+        background-color: var(--bg-secondary);
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 27px var(--shadow-color);
         padding: 2rem 0;
     }
 
@@ -262,6 +345,16 @@ body {
 
     .hamburger {
         display: flex;
+    }
+
+    .theme-toggle {
+        margin-left: 0.5rem;
+    }
+
+    .theme-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 
     .profile-section {
@@ -301,16 +394,18 @@ body {
 
 /* Page Section Styles */
 .page-section {
-    background-color: #fff;
+    background-color: var(--bg-secondary);
     padding: 4rem 0;
     min-height: calc(100vh - 160px);
+    transition: background-color 0.3s ease;
 }
 
 .page-title {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: var(--text-tertiary);
     text-align: center;
     margin-bottom: 3rem;
+    transition: color 0.3s ease;
 }
 
 .content-area {
@@ -319,25 +414,28 @@ body {
 }
 
 .content-area h2 {
-    color: #2c3e50;
+    color: var(--text-tertiary);
     margin-bottom: 1rem;
     margin-top: 2rem;
     font-size: 1.5rem;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid var(--accent-primary);
     padding-bottom: 0.5rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .content-area p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
 }
 
 .content-area ul {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.7;
     margin-left: 2rem;
     margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
 }
 
 .content-area li {
