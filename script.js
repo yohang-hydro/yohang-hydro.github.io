@@ -100,5 +100,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (firstAuthorPapersElement) {
             firstAuthorPapersElement.textContent = firstAuthorCount;
         }
+        
+        // 统计每一年份的出版物数量
+        const yearLinks = document.querySelectorAll('a[href^="#year-"]');
+        yearLinks.forEach(link => {
+            const yearId = link.getAttribute('href').substring(1); // 去掉 #
+            const yearHeader = document.getElementById(yearId);
+            if (yearHeader) {
+                // 找到该年份下的所有 citation-item
+                const yearGroup = yearHeader.nextElementSibling;
+                if (yearGroup && yearGroup.classList.contains('publications-year-group')) {
+                    const count = yearGroup.querySelectorAll('.citation-item').length;
+                    // 更新链接文本，例如 "2025 (3)"
+                    const originalText = link.textContent;
+                    const yearMatch = originalText.match(/^\d{4}/);
+                    if (yearMatch) {
+                        link.textContent = `${yearMatch[0]} (${count})`;
+                    }
+                }
+            }
+        });
     }
 });
