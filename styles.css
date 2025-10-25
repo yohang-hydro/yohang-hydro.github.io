@@ -1,140 +1,196 @@
-/* Reset and Base Styles */
+/* ============================================
+   Reset and Base Styles - 重置和基础样式
+   ============================================ */
+
+/* 重置所有元素的默认样式，确保跨浏览器一致性
+   Reset all default styles for cross-browser consistency */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;           /* 清除外边距 / Remove margins */
+    padding: 0;          /* 清除内边距 / Remove padding */
+    box-sizing: border-box;  /* 边框盒模型 / Border-box sizing */
 }
 
+/* 全局基础样式设置
+   Global base styles for body element */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #000;
-    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 字体族 / Font family */
+    line-height: 1.6;      /* 行高倍数 / Line height multiplier */
+    color: #000;            /* 文字颜色 / Text color */
+    background-color: #f8f9fa;  /* 背景颜色 / Background color */
 }
 
+/* ============================================
+   Layout Containers - 布局容器
+   ============================================ */
+
+/* 主容器样式 - 控制整体页面宽度和居中
+   Main container - controls overall page width and centering */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px;     /* 最大宽度 / Maximum width */
+    margin: 0 auto;        /* 水平居中 / Center horizontally */
+    padding: 0 20px;        /* 左右内边距 / Horizontal padding */
 }
 
-/* Header Styles */
+/* ============================================
+   Header Styles - 头部导航样式
+   ============================================ */
+
+/* 头部导航栏样式 - 固定定位、渐变背景、阴影效果
+   Header navigation bar - fixed positioning, gradient background, shadow effect */
 .header {
-    background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 100%);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 100%);  /* 渐变背景 / Gradient background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);  /* 阴影效果 / Shadow effect */
+    position: fixed;        /* 固定定位 / Fixed positioning */
+    top: 0;                 /* 顶部位置 / Top position */
+    width: 100%;            /* 全宽 / Full width */
+    z-index: 1000;          /* 层级 / Z-index */
 }
 
-/* Subtle overlay for depth */
+/* 头部伪元素 - 添加深度效果的微妙覆盖层
+   Header pseudo-element - subtle overlay for depth effect */
 .header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.01) 100%);
-    z-index: -1;
+    content: '';           /* 空内容 / Empty content */
+    position: absolute;     /* 绝对定位 / Absolute positioning */
+    top: 0;                 /* 顶部对齐 / Top alignment */
+    left: 0;                /* 左侧对齐 / Left alignment */
+    right: 0;               /* 右侧对齐 / Right alignment */
+    bottom: 0;              /* 底部对齐 / Bottom alignment */
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.01) 100%);  /* 微妙渐变 / Subtle gradient */
+    z-index: -1;            /* 背景层级 / Background z-index */
 }
 
+/* 导航栏样式
+   Navigation bar styles */
 .navbar {
-    padding: 1rem 0;
+    padding: 1rem 0;        /* 上下内边距 / Vertical padding */
 }
 
+/* 导航栏内容容器 - 使用Flexbox布局
+   Navigation content container - using Flexbox layout */
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    max-width: 1200px;     /* 最大宽度 / Maximum width */
+    margin: 0 auto;        /* 水平居中 / Center horizontally */
+    padding: 0 20px;        /* 左右内边距 / Horizontal padding */
+    display: flex;          /* Flexbox布局 / Flexbox layout */
+    justify-content: space-between;  /* 两端对齐 / Space between items */
+    align-items: center;    /* 垂直居中 / Vertical centering */
 }
 
+/* 导航Logo链接样式
+   Navigation logo link styles */
 .nav-logo a {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #2c3e50;
-    text-decoration: none;
+    font-size: 1.2rem;      /* 字体大小 / Font size */
+    font-weight: bold;      /* 字体粗细 / Font weight */
+    color: #2c3e50;         /* 文字颜色 / Text color */
+    text-decoration: none;  /* 无下划线 / No underline */
 }
 
+/* 导航菜单样式 - 使用Flexbox水平排列
+   Navigation menu styles - horizontal Flexbox layout */
 .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+    display: flex;          /* Flexbox布局 / Flexbox layout */
+    list-style: none;       /* 无列表样式 / No list style */
+    gap: 0.5rem;            /* 项目间距 / Gap between items */
 }
 
+/* 导航链接样式
+   Navigation link styles */
 .nav-link {
-    color: #2c3e50;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    color: #2c3e50;         /* 文字颜色 / Text color */
+    text-decoration: none;  /* 无下划线 / No underline */
+    font-weight: 500;       /* 字体粗细 / Font weight */
+    transition: all 0.3s ease;  /* 过渡动画 / Transition animation */
+    padding: 0.5rem 0.6rem; /* 内边距 / Padding */
+    border-radius: 6px;     /* 圆角 / Border radius */
 }
 
+/* 导航链接悬停和激活状态
+   Navigation link hover and active states */
 .nav-link:hover,
 .nav-link.active {
-    color: #555;
-    background-color: rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
+    color: #555;                    /* 悬停文字颜色 / Hover text color */
+    background-color: rgba(0, 0, 0, 0.05);  /* 悬停背景色 / Hover background */
+    transform: translateY(-2px);   /* 向上移动效果 / Upward movement effect */
 }
 
-/* Hamburger Menu */
+/* ============================================
+   Mobile Navigation - 移动端导航
+   ============================================ */
+
+/* 汉堡菜单样式 - 移动端导航按钮
+   Hamburger menu styles - mobile navigation button */
 .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
+    display: none;          /* 默认隐藏 / Hidden by default */
+    flex-direction: column; /* 垂直排列 / Vertical layout */
+    cursor: pointer;        /* 鼠标指针 / Cursor pointer */
 }
 
+/* 汉堡菜单线条样式
+   Hamburger menu bar styles */
 .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 3px 0;
-    transition: 0.3s;
+    width: 25px;            /* 线条宽度 / Bar width */
+    height: 3px;            /* 线条高度 / Bar height */
+    background-color: #333; /* 线条颜色 / Bar color */
+    margin: 3px 0;          /* 线条间距 / Bar spacing */
+    transition: 0.3s;       /* 过渡动画 / Transition animation */
 }
 
-/* Main Content */
+/* ============================================
+   Main Content - 主要内容区域
+   ============================================ */
+
+/* 主要内容区域样式
+   Main content area styles */
 .main-content {
-    margin-top: 70px;
-    min-height: calc(100vh - 70px);
+    margin-top: 70px;                    /* 顶部边距 / Top margin */
+    min-height: calc(100vh - 70px);     /* 最小高度 / Minimum height */
 }
 
-/* Welcome Section */
+/* ============================================
+   Welcome Section - 欢迎区域
+   ============================================ */
+
+/* 欢迎区域样式
+   Welcome section styles */
 .welcome-section {
-    background-color: #ffffff;
-    padding: 1.5rem 0;
-    border-radius: 8px;
-    margin: 1rem 0;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;           /* 背景颜色 / Background color */
+    padding: 1.5rem 0;                  /* 上下内边距 / Vertical padding */
+    border-radius: 8px;                  /* 圆角 / Border radius */
+    margin: 1rem 0;                      /* 上下外边距 / Vertical margin */
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);  /* 阴影效果 / Shadow effect */
 }
 
+/* 首页布局样式 - 使用CSS Grid两列布局
+   Home page layout - CSS Grid two-column layout */
 .home-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    display: grid;                    /* Grid布局 / Grid layout */
+    grid-template-columns: 2fr 1fr;  /* 两列比例 2:1 / Two columns ratio 2:1 */
+    gap: 4rem;                       /* 列间距 / Column gap */
+    align-items: start;               /* 顶部对齐 / Top alignment */
 }
 
+/* 主要内容区域样式 - 使用Flexbox垂直布局
+   Main content area - vertical Flexbox layout */
 .main-content-area {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: flex;            /* Flexbox布局 / Flexbox layout */
+    flex-direction: column;  /* 垂直排列 / Vertical direction */
+    gap: 1rem;               /* 项目间距 / Gap between items */
 }
 
+/* 个人姓名样式
+   Profile name styles */
 .profile-name {
-    font-size: 1.5rem;
-    color: #000;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;        /* 字体大小 / Font size */
+    color: #000;              /* 文字颜色 / Text color */
+    margin-bottom: 0.5rem;   /* 底部外边距 / Bottom margin */
 }
 
+/* 标题部分样式 - 职位标题
+   Title part styles - position title */
 .title-part {
-    font-size: 1.2rem;
-    color: #2c5aa0;
-    font-weight: 500;
+    font-size: 1.1rem;        /* 字体大小 / Font size */
+    color: #2c5aa0;           /* 文字颜色 / Text color */
+    font-weight: 500;         /* 字体粗细 / Font weight */
 }
 
 .profile-title {
@@ -181,7 +237,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    color: #000;
+    color: #666;                     /* 较淡的文字颜色 / Lighter text color */
     padding: 0.5rem 0.8rem;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -243,12 +299,14 @@ body {
 }
 
 /* Featured Publications Section */
+/* 特色出版物样式
+   Featured publications styles */
 .featured-publications {
-    margin-top: 1rem;
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+    margin-top: 1rem;                    /* 顶部外边距 / Top margin */
+    background-color: #ffffff;           /* 背景颜色 / Background color */
+    padding: 1.5rem;                     /* 内边距 / Padding */
+    border-radius: 8px;                  /* 圆角 / Border radius */
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);  /* 阴影效果 / Shadow effect */
 }
 
 
@@ -289,13 +347,15 @@ body {
 }
 
 .publication-content h3 a {
-    color: #2c3e50;
+    color: #666;                     /* 较淡的文字颜色 / Lighter text color */
     text-decoration: none;
-    transition: color 0.3s ease;
+    border-bottom: 1px solid #ccc;   /* 淡色下划线 / Light underline */
+    transition: all 0.3s ease;
 }
 
 .publication-content h3 a:hover {
-    color: #2c5aa0;
+    color: #2c5aa0;                  /* 悬停时颜色 / Hover color */
+    border-bottom-color: #2c5aa0;    /* 悬停时下划线颜色 / Hover underline color */
 }
 
 .publication-authors {
@@ -382,16 +442,31 @@ body {
 }
 
 .news-link {
-    color: #2c5aa0;
+    color: #666;                     /* 较淡的文字颜色 / Lighter text color */
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
+    border-bottom: 1px solid #ccc;   /* 淡色下划线 / Light underline */
     transition: all 0.3s ease;
 }
 
 .news-link:hover {
-    color: #1e3a8a;
-    text-decoration: underline;
+    color: #2c5aa0;                  /* 悬停时颜色 / Hover color */
+    border-bottom-color: #2c5aa0;    /* 悬停时下划线颜色 / Hover underline color */
+}
+
+/* 个人简介中的链接样式 - 减少视觉突出度
+   Profile bio link styles - reduce visual prominence */
+.profile-bio a {
+    color: #666;                     /* 较淡的文字颜色 / Lighter text color */
+    text-decoration: none;           /* 无下划线 / No underline */
+    border-bottom: 1px solid #ccc;   /* 淡色下划线 / Light underline */
+    transition: all 0.3s ease;       /* 过渡动画 / Transition animation */
+}
+
+.profile-bio a:hover {
+    color: #2c5aa0;                  /* 悬停时颜色 / Hover color */
+    border-bottom-color: #2c5aa0;    /* 悬停时下划线颜色 / Hover underline color */
 }
 
 /* News Section */
@@ -439,6 +514,589 @@ body {
     line-height: 1.6;
 }
 
+/* CV Page Styles */
+.cv-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cv-main-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: right;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* CV顶部最后更新时间样式
+   CV top last updated time styles */
+.cv-last-updated-top {
+    text-align: right;               /* 右对齐 / Right alignment */
+    color: #666;                     /* 文字颜色 / Text color */
+    font-size: 0.9rem;               /* 字体大小 / Font size */
+    margin: 0 0 2rem 0;             /* 边距 / Margin */
+    font-style: italic;              /* 斜体 / Italic */
+}
+
+/* CV页面导航侧边栏样式
+   CV page navigation sidebar styles */
+.cv-nav-sidebar {
+    position: fixed;            /* 固定定位 / Fixed positioning */
+    left: 51%;                  /* 左侧位置 / Left position */
+    transform: translateX(-600px);  /* 水平偏移 / Horizontal offset */
+    top: 170px;                 /* 顶部位置 / Top position */
+    background-color: #ffffff;  /* 背景颜色 / Background color */
+    border-radius: 8px;         /* 圆角 / Border radius */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);  /* 阴影效果 / Shadow effect */
+    padding: 1rem;              /* 内边距 / Padding */
+    z-index: 1000;              /* 层级 / Z-index */
+    min-width: 200px;           /* 最小宽度 / Minimum width */
+    border: none; /* 边框 / Border */
+}
+
+.cv-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-nav-list li {
+    margin-bottom: 0.5rem;
+}
+
+.cv-nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.cv-nav-link:hover {
+    background-color: #f8f9fa;
+    color: #2c5aa0;
+}
+
+.cv-nav-link.active {
+    background-color: #2c5aa0;
+    color: #ffffff;
+}
+
+/* CV页面主要内容区域样式
+   CV page main content area styles */
+.cv-main-content {
+    margin-left: 300px;              /* 左侧外边距 / Left margin */
+    margin-right: 0;                 /* 右侧外边距 / Right margin */
+    max-width: none;                 /* 无最大宽度限制 / No max width limit */
+    width: calc(100% - 270px);      /* 宽度计算 / Width calculation */
+}
+
+/* CV表格样式 - 时间在右边对齐
+   CV table styles - time aligned to the right */
+.cv-table {
+    width: 100%;                     /* 全宽 / Full width */
+    border-collapse: collapse;       /* 合并边框 / Collapse borders */
+    margin-bottom: 0.8rem;          /* 减少底部外边距 / Reduced bottom margin */
+}
+
+.cv-table-row {
+    display: flex;                   /* Flexbox布局 / Flexbox layout */
+    align-items: flex-start;         /* 顶部对齐 / Top alignment */
+    padding: 0.8rem 0;              /* 减少上下内边距 / Reduced vertical padding */
+    border-bottom: 1px solid #e9ecef; /* 底部边框 / Bottom border */
+}
+
+.cv-table-row:last-child {
+    border-bottom: none;             /* 最后一行无边框 / No border for last row */
+}
+
+.cv-table-content {
+    flex: 1;                         /* 占据剩余空间 / Take remaining space */
+    padding-right: 1rem;             /* 右侧内边距 / Right padding */
+}
+
+.cv-table-date {
+    flex-shrink: 0;                  /* 不收缩 / Don't shrink */
+    text-align: right;               /* 右对齐 / Right align */
+    color: #666;                     /* 文字颜色 / Text color */
+    font-weight: 500;                /* 字体粗细 / Font weight */
+    min-width: 120px;                /* 最小宽度 / Minimum width */
+    white-space: nowrap;             /* 不换行 / No wrap */
+}
+
+.cv-table h3 {
+    margin: 0 0 0.5rem 0;           /* 标题边距 / Title margin */
+    color: #2c3e50;                  /* 标题颜色 / Title color */
+    font-size: 1.1rem;               /* 标题字体大小 / Title font size */
+}
+
+.cv-table p {
+    margin: 0.25rem 0;               /* 段落边距 / Paragraph margin */
+    color: #555;                     /* 段落颜色 / Paragraph color */
+}
+
+.cv-table ul {
+    margin: 0.5rem 0;                /* 列表边距 / List margin */
+    padding-left: 2rem;            /* 列表左内边距 / List left padding */
+}
+
+.cv-table li {
+    margin: 0.25rem 0;               /* 列表项边距 / List item margin */
+    color: #555;                     /* 列表项颜色 / List item color */
+}
+
+
+/* CV页面链接样式 - 减少视觉突出度
+   CV page link styles - reduce visual prominence */
+.cv-table a {
+    color: #666;                     /* 较淡的文字颜色 / Lighter text color */
+    text-decoration: none;           /* 无下划线 / No underline */
+    border-bottom: 1px solid #ccc;   /* 淡色下划线 / Light underline */
+    transition: all 0.3s ease;       /* 过渡动画 / Transition animation */
+}
+
+.cv-table a:hover {
+    color: #2c5aa0;                  /* 悬停时颜色 / Hover color */
+    border-bottom-color: #2c5aa0;    /* 悬停时下划线颜色 / Hover underline color */
+}
+
+/* ============================================
+   Publications Page - 出版物页面
+   ============================================ */
+
+/* 出版物容器样式
+   Publications container styles */
+.publications-container {
+    max-width: 1200px;               /* 最大宽度 / Maximum width */
+    margin: 0 auto;                  /* 居中对齐 / Center alignment */
+}
+
+/* 按年份分组布局样式
+   Publications by year layout styles */
+.publications-by-year {
+    max-width: 1200px;                /* 最大宽度 / Maximum width */
+    margin: 0 auto;                   /* 居中 / Center alignment */
+    counter-reset: publication-counter; /* 重置计数器 / Reset counter */
+}
+
+/* 年份标题样式
+   Year header styles */
+.year-header {
+    font-size: 1.2rem;                /* 字体大小 / Font size */
+    color: #2c5aa0;                   /* 颜色 / Color */
+    margin: 1.5rem 0 1rem 0;         /* 边距 / Margin */
+    padding-bottom: 0.3rem;           /* 底部内边距 / Bottom padding */
+    font-weight: bold;                /* 字体粗细 / Font weight */
+}
+
+/* 第一个年份标题样式
+   First year header styles */
+.year-header:first-of-type {
+    margin-top: 0.5rem;               /* 第一个年份顶部边距更小 / Smaller top margin for first year */
+}
+
+/* 年份组样式
+   Year group styles */
+.publications-year-group {
+    margin-left: 2.5rem;              /* 左侧缩进 / Left indentation */
+    margin-bottom: 1rem;              /* 底部边距 / Bottom margin */
+}
+
+/* 简单布局样式（保留用于其他页面）
+   Simple layout styles (kept for other pages) */
+.publications-simple-layout {
+    display: grid;
+    grid-template-columns: 80px 1fr;  /* 年份列宽度80px，引用列占据剩余空间 / Year column 80px, citations take remaining space */
+    gap: 1rem;                        /* 列间距 / Gap between columns */
+    max-width: 1000px;                /* 最大宽度 / Maximum width */
+    margin: 0 auto;                   /* 居中 / Center alignment */
+}
+
+.publication-year-column {
+    display: grid;
+    grid-template-rows: repeat(16, 1.5rem); /* 16行，每行1.5rem高度 / 16 rows, 1.5rem height each */
+    gap: 0;                           /* 无间距，由grid-row控制 / No gap, controlled by grid-row */
+    padding-top: 0.5rem;             /* 顶部内边距 / Top padding */
+    align-content: start;             /* 顶部对齐 / Top alignment */
+}
+
+.year-item {
+    color: #2c5aa0;                   /* 年份颜色 / Year color */
+    font-weight: bold;                /* 字体粗细 / Font weight */
+    font-size: 0.9rem;                /* 字体大小 / Font size */
+    text-align: right;                /* 右对齐 / Right alignment */
+    padding-right: 1rem;              /* 右侧内边距 / Right padding */
+}
+
+.publication-citations {
+    display: flex;
+    flex-direction: column;           /* 垂直排列 / Vertical direction */
+    gap: 1.5rem;                     /* 引用间距 / Gap between citations */
+}
+
+.citation-item {
+    line-height: 1.6;                 /* 行高 / Line height */
+    font-size: 0.95rem;               /* 字体大小 / Font size */
+    display: flex;                    /* Flexbox布局 / Flexbox layout */
+    align-items: flex-start;          /* 顶部对齐 / Top alignment */
+    gap: 0.5rem;                     /* 序号与内容间距 / Gap between number and content */
+}
+
+.citation-number {
+    color: #2c5aa0;                   /* 序号颜色 / Number color */
+    font-weight: bold;                /* 字体粗细 / Font weight */
+    font-size: 0.9rem;                /* 字体大小 / Font size */
+    flex-shrink: 0;                   /* 不收缩 / Don't shrink */
+    margin-top: 0.1rem;               /* 微调垂直位置 / Fine-tune vertical position */
+}
+
+/* 自动计数器样式
+   Auto counter styles */
+.citation-item {
+    counter-increment: publication-counter; /* 递增计数器 / Increment counter */
+}
+
+.citation-number::before {
+    content: counter(publication-counter) "."; /* 自动生成序号 / Auto generate number */
+}
+
+.citation-item a {
+    color: #333;                      /* 链接颜色 / Link color */
+    text-decoration: none;            /* 无下划线 / No underline */
+    border-bottom: 1px solid #ccc;    /* 淡色下划线 / Light underline */
+    transition: all 0.3s ease;        /* 过渡动画 / Transition animation */
+}
+
+.citation-item a:hover {
+    color: #2c5aa0;                   /* 悬停时颜色 / Hover color */
+    border-bottom-color: #2c5aa0;     /* 悬停时下划线颜色 / Hover underline color */
+}
+
+.citation-item em {
+    font-style: italic;               /* 期刊名斜体 / Journal name italic */
+    color: #2c5aa0;                   /* 期刊名颜色 / Journal name color */
+}
+
+/* 年份间距样式
+   Year spacer styles */
+.year-spacer {
+    height: 1.5rem;                   /* 与引用间距相同 / Same as citation gap */
+}
+
+/* 部分副标题样式
+   Section subtitle styles */
+.section-subtitle {
+    font-size: 1.5rem;                /* 字体大小 / Font size */
+    color: #2c5aa0;                   /* 颜色 / Color */
+    margin: 3rem 0 1.5rem 0;         /* 边距 / Margin */
+    padding-bottom: 0.5rem;           /* 底部内边距 / Bottom padding */
+    border-bottom: 2px solid #2c5aa0; /* 底部边框 / Bottom border */
+    font-weight: bold;                /* 字体粗细 / Font weight */
+}
+
+/* 会议报告样式
+   Conference presentation styles */
+.citation-item span:not(.citation-number) {
+    color: #333;                      /* 文字颜色 / Text color */
+}
+
+/* 引用文本样式
+   Citation text styles */
+.citation-text {
+    color: #333;                      /* 文字颜色 / Text color */
+    line-height: 1.6;                 /* 行高 / Line height */
+}
+
+/* 作者姓名样式
+   Author name styles */
+.author-name {
+    font-weight: bold;                /* 加粗 / Bold */
+    text-decoration: underline;       /* 下划线 / Underline */
+    color: #2c5aa0;                   /* 蓝色 / Blue color */
+}
+
+/* 通讯作者星号样式
+   Corresponding author asterisk styles */
+.author-name sup {
+    font-weight: bold;                /* 加粗 / Bold */
+    color: #d32f2f;                   /* 红色突出显示 / Red for emphasis */
+    text-decoration: none;            /* 去除下划线 / Remove underline */
+    vertical-align: baseline;         /* 垂直对齐 / Vertical alignment */
+}
+
+/* DOI链接样式
+   DOI link styles */
+.doi-link {
+    color: #2c5aa0;                   /* DOI链接颜色 / DOI link color */
+    text-decoration: underline;       /* 下划线 / Underline */
+    font-weight: normal;              /* 字体粗细 / Font weight */
+    margin-left: 0.5rem;              /* 左侧间距 / Left margin */
+    transition: color 0.3s ease;      /* 过渡动画 / Transition animation */
+}
+
+.doi-link:hover {
+    color: #1e3a8a;                   /* 悬停时颜色 / Hover color */
+    text-decoration: underline;       /* 保持下划线 / Keep underline */
+}
+
+/* 会议部分年份列样式
+   Conference section year column styles */
+.conferences-layout .publication-year-column {
+    grid-template-rows: repeat(4, 1.5rem); /* 4行，每行1.5rem高度 / 4 rows, 1.5rem height each */
+}
+
+/* 会议部分自动计数器重置
+   Conference section counter reset */
+.conferences-layout {
+    counter-reset: publication-counter; /* 重置计数器 / Reset counter */
+}
+
+/* 年份标题样式
+   Year title styles */
+.year-title {
+    font-size: 1.8rem;               /* 字体大小 / Font size */
+    color: #2c5aa0;                  /* 文字颜色 / Text color */
+    margin: 2rem 0 1rem 0;          /* 边距 / Margin */
+    padding-bottom: 0.5rem;          /* 底部内边距 / Bottom padding */
+    border-bottom: 2px solid #2c5aa0; /* 底部边框 / Bottom border */
+    font-weight: bold;               /* 字体粗细 / Font weight */
+}
+
+/* 年份部分样式
+   Year section styles */
+.publication-year-section {
+    margin-bottom: 3rem;             /* 底部外边距 / Bottom margin */
+}
+
+/* 出版物列表样式
+   Publications list styles */
+.publications-list {
+    display: flex;                   /* Flexbox布局 / Flexbox layout */
+    flex-direction: column;          /* 垂直排列 / Vertical direction */
+    gap: 1.5rem;                    /* 项目间距 / Gap between items */
+}
+
+/* 出版物页面项目样式
+   Publications page item styles */
+.publications-container .publication-item {
+    display: flex;                   /* Flexbox布局 / Flexbox layout */
+    align-items: flex-start;         /* 顶部对齐 / Top alignment */
+    gap: 1.5rem;                    /* 项目间距 / Gap between items */
+    padding: 1.5rem;                /* 内边距 / Padding */
+    background-color: #ffffff;       /* 背景颜色 / Background color */
+    border-radius: 8px;              /* 圆角 / Border radius */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 / Shadow effect */
+    border-left: 4px solid #2c5aa0;  /* 左侧边框 / Left border */
+}
+
+/* 出版物序号样式
+   Publication number styles */
+.publication-number {
+    flex-shrink: 0;                  /* 不收缩 / Don't shrink */
+    width: 40px;                     /* 宽度 / Width */
+    height: 40px;                    /* 高度 / Height */
+    background-color: #2c5aa0;       /* 背景颜色 / Background color */
+    color: #ffffff;                  /* 文字颜色 / Text color */
+    border-radius: 50%;              /* 圆形 / Circle */
+    display: flex;                   /* Flexbox布局 / Flexbox layout */
+    align-items: center;             /* 垂直居中 / Vertical centering */
+    justify-content: center;         /* 水平居中 / Horizontal centering */
+    font-weight: bold;               /* 字体粗细 / Font weight */
+    font-size: 1.1rem;               /* 字体大小 / Font size */
+}
+
+/* 出版物页面内容样式
+   Publications page content styles */
+.publications-container .publication-content {
+    flex: 1;                         /* 占据剩余空间 / Take remaining space */
+}
+
+.publications-container .publication-content h3 {
+    margin: 0 0 0.8rem 0;           /* 标题边距 / Title margin */
+    color: #2c3e50;                  /* 标题颜色 / Title color */
+    font-size: 1.2rem;               /* 标题字体大小 / Title font size */
+    line-height: 1.4;                /* 行高 / Line height */
+}
+
+.publications-container .publication-content h3 a {
+    color: #2c3e50;                  /* 链接颜色 / Link color */
+    text-decoration: none;           /* 无下划线 / No underline */
+    transition: color 0.3s ease;     /* 过渡动画 / Transition animation */
+}
+
+.publications-container .publication-content h3 a:hover {
+    color: #2c5aa0;                  /* 悬停时颜色 / Hover color */
+}
+
+.publications-container .publication-authors {
+    color: #555;                     /* 作者颜色 / Authors color */
+    font-style: italic;              /* 斜体 / Italic */
+    margin: 0 0 0.5rem 0;           /* 边距 / Margin */
+    font-size: 1rem;                 /* 字体大小 / Font size */
+}
+
+.publications-container .publication-journal {
+    color: #2c5aa0;                  /* 期刊颜色 / Journal color */
+    font-weight: bold;               /* 字体粗细 / Font weight */
+    margin: 0 0 1rem 0;             /* 边距 / Margin */
+    font-size: 0.95rem;              /* 字体大小 / Font size */
+}
+
+.publications-container .publication-abstract {
+    color: #666;                     /* 摘要颜色 / Abstract color */
+    line-height: 1.6;                /* 行高 / Line height */
+    font-size: 0.95rem;              /* 字体大小 / Font size */
+    margin: 0;                       /* 清除边距 / Remove margin */
+}
+
+/* ============================================
+   Responsive Design - 响应式设计
+   ============================================ */
+
+/* CV页面响应式设计 - 中等屏幕
+   CV page responsive design - medium screens */
+@media (max-width: 1200px) {
+    .cv-nav-sidebar {
+        left: 20px;
+        top: 150px;
+        transform: none;
+    }
+    
+    .cv-main-content {
+        margin-left: 250px;
+        max-width: none;
+        width: calc(100% - 270px);
+    }
+}
+
+/* CV表格响应式设计 - 小屏幕
+   CV table responsive design - small screens */
+@media (max-width: 768px) {
+    .cv-table-row {
+        flex-direction: column;      /* 垂直排列 / Vertical direction */
+        align-items: flex-start;     /* 左对齐 / Left alignment */
+    }
+    
+    .cv-table-date {
+        text-align: left;            /* 左对齐 / Left align */
+        margin-top: 0.5rem;          /* 顶部外边距 / Top margin */
+        min-width: auto;             /* 自动宽度 / Auto width */
+    }
+    
+    .cv-table-content {
+        padding-right: 0;            /* 无右侧内边距 / No right padding */
+    }
+    
+    /* 出版物页面移动端响应式设计
+       Publications page mobile responsive design */
+    .publications-container .publication-item {
+        flex-direction: column;      /* 垂直排列 / Vertical direction */
+        align-items: center;         /* 居中对齐 / Center alignment */
+        text-align: center;          /* 文字居中 / Text center */
+    }
+    
+    .publications-container .publication-number {
+        margin-bottom: 1rem;         /* 底部外边距 / Bottom margin */
+    }
+    
+    .publications-container .publication-content {
+        text-align: left;            /* 内容左对齐 / Content left align */
+    }
+    
+    /* 简单布局移动端响应式设计
+       Simple layout mobile responsive design */
+    .publications-simple-layout {
+        grid-template-columns: 1fr;  /* 单列布局 / Single column layout */
+        gap: 0.5rem;                 /* 减少间距 / Reduced gap */
+    }
+    
+    .publication-year-column {
+        display: none;               /* 隐藏年份列 / Hide year column */
+    }
+    
+    .publication-citations {
+        gap: 1rem;                   /* 减少引用间距 / Reduced citation gap */
+    }
+    
+    .citation-item {
+        font-size: 0.9rem;           /* 减小字体 / Smaller font */
+    }
+}
+
+@media (max-width: 768px) {
+    .cv-nav-sidebar {
+        display: none;
+    }
+    
+    .cv-main-content {
+        margin-left: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .cv-container {
+        max-width: 100%;
+    }
+}
+
+.cv-section {
+    margin-bottom: 1.2rem;           /* 减少底部外边距 / Reduced bottom margin */
+    padding: 1.2rem;                 /* 减少内边距 / Reduced padding */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+}
+
+.cv-section h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #2c5aa0;
+    padding-bottom: 0.5rem;
+}
+
+.cv-content {
+    line-height: 1.6;
+}
+
+.cv-item {
+    margin-bottom: 1.5rem;
+}
+
+.cv-item h3 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cv-date {
+    color: #666;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.publication-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.publication-list li {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.publication-list li::before {
+    content: "•";
+    color: #2c5aa0;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
 /* Footer */
 .footer {
     background-color: #2c3e50;
@@ -468,17 +1126,19 @@ body {
 }
 
 /* Responsive Design */
+/* 移动端响应式设计 - 小屏幕
+   Mobile responsive design - small screens */
 @media (max-width: 768px) {
     .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        position: fixed;         /* 固定定位 / Fixed positioning */
+        left: -100%;             /* 左侧隐藏 / Hidden to left */
+        top: 70px;               /* 顶部位置 / Top position */
+        flex-direction: column;  /* 垂直排列 / Vertical direction */
+        background-color: #fff;  /* 背景颜色 / Background color */
+        width: 100%;             /* 全宽 / Full width */
+        text-align: center;      /* 文字居中 / Text center */
+        transition: 0.3s;        /* 过渡动画 / Transition animation */
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);  /* 阴影效果 / Shadow effect */
         padding: 2rem 0;
     }
 
