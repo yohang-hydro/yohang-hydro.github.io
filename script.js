@@ -93,13 +93,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let totalPapers = 0;
         let firstAuthorCount = 0;
+        const journalCounts = {}; // 用于统计每个期刊的数量
         
         if (journalPublications) {
             // 统计所有期刊出版物的数量
             const citationItems = journalPublications.querySelectorAll('.citation-item');
             totalPapers = citationItems.length;
             
-            // 统计第一作者或通讯作者的数量
+            // 统计第一作者或通讯作者的数量，以及每个期刊的数量
             citationItems.forEach(item => {
                 const citationText = item.querySelector('.citation-text');
                 if (citationText) {
@@ -109,6 +110,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (text.trim().startsWith('<span class="author-name">Zhang, Y.</span>') || 
                         text.includes('<span class="author-name">Zhang, Y.<sup>*</sup></span>')) {
                         firstAuthorCount++;
+                    }
+                    
+                    // 提取期刊名称（在 <em> 标签内）
+                    const journalMatch = text.match(/<em>([^<]+)<\/em>/);
+                    if (journalMatch) {
+                        let journalName = journalMatch[1].trim();
+                        
+                        // 自动替换期刊名称中的 & 为 and（统一样式）
+                        journalName = journalName.replace(/&/g, 'and');
+                        
+                        journalCounts[journalName] = (journalCounts[journalName] || 0) + 1;
                     }
                 }
             });
@@ -124,5 +136,50 @@ document.addEventListener('DOMContentLoaded', function() {
         if (firstAuthorPapersElement) {
             firstAuthorPapersElement.textContent = firstAuthorCount;
         }
+        
+        // 更新期刊列表
+         const journalListElement = document.getElementById('journal-list');
+         if (journalListElement) {
+             // 定义高影响力期刊的优先级顺序（按重要程度排序）
+             const highImpactJournals = [
+                'WIREs Water',
+                'Geophysical Research Letters',
+                'Water Resources Research',
+                'Journal of Hydrology',
+                'Hydrology and Earth System Sciences',
+                'Environmental Modelling and Software',
+                'Journal of Hydrometeorology',
+                'Science of The Total Environment',
+                'Earth and Space Science'
+             ];
+             
+             // 分离高影响力期刊和其他期刊
+             const highImpact = [];
+             const otherJournals = [];
+             
+             Object.entries(journalCounts).forEach(([name, count]) => {
+                 const index = highImpactJournals.indexOf(name);
+                 if (index !== -1) {
+                     highImpact.push({ index, name, count });
+                 } else {
+                     otherJournals.push({ name, count });
+                 }
+             });
+             
+             // 高影响力期刊按预定义顺序排序
+             highImpact.sort((a, b) => a.index - b.index);
+             
+             // 其他期刊按字母顺序排序
+             otherJournals.sort((a, b) => a.name.localeCompare(b.name));
+             
+             // 合并期刊列表（高影响力在前，其他在后）
+             const allJournals = [...highImpact, ...otherJournals];
+             
+             // 格式化并显示
+             const formattedJournals = allJournals
+                 .map(item => `<em>${item.name}</em> (${item.count})`);
+             
+             journalListElement.innerHTML = formattedJournals.join(', ') + '.';
+         }
     }
 });
