@@ -1,20 +1,30 @@
-// Mobile Navigation Toggle
+/* ============================================
+   MOBILE NAVIGATION TOGGLE - 移动端导航切换
+   ============================================ */
+
+// 等待DOM加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
+    // 获取汉堡菜单按钮和导航菜单元素
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
+    // 汉堡菜单点击事件：切换移动端导航菜单的显示/隐藏
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking on a link
+    // 点击导航链接时关闭移动端菜单
     document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
     }));
 
-    // Smooth scrolling for anchor links
+    /* ============================================
+       SMOOTH SCROLLING - 平滑滚动效果
+       ============================================ */
+    
+    // 为所有锚点链接添加平滑滚动效果
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -28,15 +38,67 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add scroll effect to header
+    /* ============================================
+       HEADER SCROLL EFFECT - 头部滚动效果
+       ============================================ */
+    
+    // 添加头部滚动效果：滚动时改变背景透明度和模糊效果
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
         if (window.scrollY > 100) {
+            // 滚动超过100px时：半透明背景 + 模糊效果
             header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
             header.style.backdropFilter = 'blur(10px)';
         } else {
+            // 滚动小于100px时：恢复原始样式
             header.style.backgroundColor = '#fff';
             header.style.backdropFilter = 'none';
         }
     });
+
+    /* ============================================
+       PUBLICATION COUNTS - 出版物计数
+       ============================================ */
+    
+    // 统计出版物数量（仅当在publications页面时执行）
+    const publicationSummary = document.getElementById('publication-summary');
+    if (publicationSummary) {
+        // 只统计期刊出版物（排除会议论文）
+        // 找到"Journal Publications"和"Conferences & Talks"之间的出版物
+        const journalPublications = document.querySelector('.publications-by-year:not(.conferences-layout)');
+        
+        let totalPapers = 0;
+        let firstAuthorCount = 0;
+        
+        if (journalPublications) {
+            // 统计所有期刊出版物的数量
+            const citationItems = journalPublications.querySelectorAll('.citation-item');
+            totalPapers = citationItems.length;
+            
+            // 统计第一作者或通讯作者的数量
+            citationItems.forEach(item => {
+                const citationText = item.querySelector('.citation-text');
+                if (citationText) {
+                    const text = citationText.innerHTML;
+                    // 检查是否以 "Zhang, Y." 开头（第一作者）
+                    // 或者包含 "Zhang, Y.*"（通讯作者）
+                    if (text.trim().startsWith('<span class="author-name">Zhang, Y.</span>') || 
+                        text.includes('<span class="author-name">Zhang, Y.<sup>*</sup></span>')) {
+                        firstAuthorCount++;
+                    }
+                }
+            });
+        }
+        
+        // 更新页面中的数字
+        const totalPapersElement = document.getElementById('total-papers');
+        const firstAuthorPapersElement = document.getElementById('first-author-papers');
+        
+        if (totalPapersElement) {
+            totalPapersElement.textContent = totalPapers;
+        }
+        if (firstAuthorPapersElement) {
+            firstAuthorPapersElement.textContent = firstAuthorCount;
+        }
+    }
 });

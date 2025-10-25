@@ -741,7 +741,7 @@ body {
     line-height: 1.6;                 /* 行高 / Line height */
     font-size: 0.95rem;               /* 字体大小 / Font size */
     display: flex;                    /* Flexbox布局 / Flexbox layout */
-    align-items: flex-start;          /* 顶部对齐 / Top alignment */
+    align-items: baseline;            /* 基线对齐 / Baseline alignment */
     gap: 0.5rem;                     /* 序号与内容间距 / Gap between number and content */
 }
 
@@ -750,7 +750,6 @@ body {
     font-weight: bold;                /* 字体粗细 / Font weight */
     font-size: 0.9rem;                /* 字体大小 / Font size */
     flex-shrink: 0;                   /* 不收缩 / Don't shrink */
-    margin-top: 0.1rem;               /* 微调垂直位置 / Fine-tune vertical position */
 }
 
 /* 自动计数器样式
@@ -824,7 +823,8 @@ body {
     font-weight: bold;                /* 加粗 / Bold */
     color: #d32f2f;                   /* 红色突出显示 / Red for emphasis */
     text-decoration: none;            /* 去除下划线 / Remove underline */
-    vertical-align: baseline;         /* 垂直对齐 / Vertical alignment */
+    vertical-align: super;            /* 上标对齐 / Superscript alignment */
+    font-size: 1em;                 /* 字体大小 / Font size */
 }
 
 /* DOI链接样式
