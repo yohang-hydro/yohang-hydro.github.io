@@ -538,7 +538,7 @@ body {
     color: #2c3e50;                         /* 标题颜色 / Title color */
     margin-top: 0;                          /* 无顶部边距 / No top margin */
     margin-bottom: 0.5rem;                  /* 底部边距 / Bottom margin */
-    font-size: 1.2rem;                      /* 字体大小 / Font size */
+    font-size: 1.1rem;                      /* 字体大小 / Font size */
     font-weight: 600;                       /* 字体加粗 / Bold */
 }
 
@@ -547,6 +547,7 @@ body {
     color: #000;                            /* 黑色字体 / Black color */
     line-height: 1.5 !important;            /* 行高 / Line height */
     margin-bottom: 0.3rem !important;       /* 段落间距 / Paragraph margin */
+    font-size: 0.95rem;                     /* 字体大小 / Font size */
 }
 
 /* CV Page Styles */
