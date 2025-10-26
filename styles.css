@@ -835,6 +835,20 @@ body {
     font-weight: bold;                /* 字体粗细 / Font weight */
 }
 
+/* 部分副标题响应式设计
+   Section subtitle responsive design */
+@media (max-width: 768px) {
+    .section-subtitle {
+        flex-direction: column;       /* 移动端垂直排列 / Vertical on mobile */
+        align-items: flex-start;       /* 左对齐 / Left align */
+        gap: 0.5rem;                  /* 添加间距 / Add gap */
+    }
+    
+    .section-subtitle a {
+        align-self: flex-end;          /* 移动端右对齐 / Right align on mobile */
+    }
+}
+
 /* 会议报告样式
    Conference presentation styles */
 .citation-item span:not(.citation-number) {
@@ -1514,5 +1528,175 @@ body {
     .brain-gifs-row {
         grid-template-columns: repeat(2, 1fr); /* 移动端2列 / 2 columns on mobile */
         gap: 0.5rem;                      /* 减小间距 / Smaller gap */
+    }
+}
+
+/* ============================================
+   CONTACT PAGE - 联系页面
+   ============================================ */
+
+/* Contact Info Styles / 联系信息样式 */
+.contact-info {
+    display: flex;                        /* 弹性布局 / Flex layout */
+    flex-direction: column;               /* 垂直排列 / Vertical direction */
+    gap: 2rem;                           /* 项目间距 / Gap between items */
+    margin: 2rem 0;                      /* 上下外边距 / Vertical margin */
+}
+
+.contact-item {
+    padding: 1.5rem;                     /* 内边距 / Padding */
+    background-color: #f8f9fa;           /* 背景颜色 / Background color */
+    border-radius: 8px;                  /* 圆角 / Border radius */
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);  /* 阴影效果 / Shadow effect */
+}
+
+.contact-item h3 {
+    color: #2c5aa0;                      /* 标题颜色 / Title color */
+    font-size: 1.2rem;                    /* 字体大小 / Font size */
+    margin-bottom: 0.75rem;              /* 底部外边距 / Bottom margin */
+    font-weight: 600;                   /* 字体粗细 / Font weight */
+}
+
+.contact-item p {
+    color: #333;                         /* 文字颜色 / Text color */
+    line-height: 1.7;                    /* 行高 / Line height */
+    margin: 0.5rem 0;                    /* 段落间距 / Paragraph margin */
+}
+
+.contact-item a {
+    color: #2c5aa0;                      /* 链接颜色 / Link color */
+    text-decoration: none;                /* 无下划线 / No underline */
+    font-weight: 500;                    /* 字体粗细 / Font weight */
+    transition: all 0.3s ease;            /* 过渡动画 / Transition animation */
+}
+
+.contact-item a:hover {
+    color: #1e3a8a;                      /* 悬停时颜色 / Hover color */
+    text-decoration: underline;           /* 添加下划线 / Add underline */
+}
+
+/* Contact Social Links / 联系社交链接 */
+.contact-social-links {
+    display: flex;                        /* 弹性布局 / Flex layout */
+    flex-wrap: wrap;                      /* 允许换行 / Allow wrapping */
+    gap: 0.75rem;                        /* 链接间距 / Link spacing */
+    margin-top: 0.5rem;                  /* 顶部外边距 / Top margin */
+}
+
+.contact-social-link {
+    padding: 0.5rem 1rem;                 /* 内边距 / Padding */
+    background-color: #ffffff;            /* 背景颜色 / Background color */
+    border: 1px solid #e0e0e0;          /* 边框 / Border */
+    border-radius: 6px;                  /* 圆角 / Border radius */
+    color: #2c5aa0;                      /* 文字颜色 / Text color */
+    text-decoration: none;                /* 无下划线 / No underline */
+    font-weight: 500;                    /* 字体粗细 / Font weight */
+    transition: all 0.3s ease;           /* 过渡动画 / Transition animation */
+}
+
+.contact-social-link:hover {
+    background-color: #2c5aa0;            /* 悬停背景色 / Hover background */
+    color: #ffffff;                       /* 悬停文字色 / Hover text color */
+    transform: translateY(-2px);         /* 向上移动效果 / Upward movement */
+    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.2);  /* 阴影效果 / Shadow effect */
+}
+
+/* Contact Message / 联系消息 */
+.contact-message {
+    margin-top: 2.5rem;                   /* 顶部外边距 / Top margin */
+    padding: 2rem;                        /* 内边距 / Padding */
+    background-color: #f8f9fa;            /* 背景颜色 / Background color */
+    border-radius: 8px;                  /* 圆角 / Border radius */
+    border-left: 4px solid #2c5aa0;     /* 左侧边框 / Left border */
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);  /* 阴影效果 / Shadow effect */
+}
+
+.contact-message h2 {
+    color: #2c3e50;                       /* 标题颜色 / Title color */
+    font-size: 1.5rem;                    /* 字体大小 / Font size */
+    margin-bottom: 1rem;                  /* 底部外边距 / Bottom margin */
+}
+
+.contact-message p {
+    color: #555;                          /* 文字颜色 / Text color */
+    line-height: 1.7;                     /* 行高 / Line height */
+    margin-bottom: 1rem;                  /* 段落间距 / Paragraph margin */
+}
+
+.contact-message p:last-child {
+    margin-bottom: 0;                     /* 最后一段无底部边距 / No margin for last paragraph */
+}
+
+/* Visitor Counter Styles / 访客计数器样式 */
+.visitor-counter-box {
+    background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%);
+    border: 2px solid #2c5aa0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.15);
+}
+
+.counter-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.counter-label {
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.counter-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c5aa0;
+}
+
+.visitor-map-item {
+    text-align: center;                   /* 文字居中 / Text center */
+}
+
+.visitor-map-item h3 {
+    text-align: left;                    /* 标题左对齐 / Title left align */
+}
+
+/* Contact Page Responsive / 联系页面响应式 */
+@media (max-width: 768px) {
+    .contact-info {
+        gap: 1.5rem;                     /* 减小间距 / Reduced gap */
+    }
+    
+    .contact-item {
+        padding: 1.2rem;                 /* 减小内边距 / Reduced padding */
+    }
+    
+    .contact-social-links {
+        flex-direction: column;          /* 垂直排列 / Vertical direction */
+    }
+    
+    .contact-social-link {
+        width: 100%;                     /* 全宽 / Full width */
+        text-align: center;              /* 文字居中 / Text center */
+    }
+    
+    .contact-message {
+        padding: 1.5rem;                 /* 减小内边距 / Reduced padding */
+    }
+    
+    .visitor-counter-box {
+        padding: 1.2rem;                 /* 减小内边距 / Reduced padding */
+    }
+    
+    .counter-text {
+        flex-direction: column;          /* 垂直排列 / Vertical direction */
+        gap: 0.5rem;                    /* 添加间距 / Add gap */
+    }
+    
+    .counter-number {
+        font-size: 1.3rem;              /* 减小字体 / Smaller font */
     }
 }
