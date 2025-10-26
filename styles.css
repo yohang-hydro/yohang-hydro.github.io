@@ -13,10 +13,10 @@
 /* 全局基础样式设置
    Global base styles for body element */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 字体族 / Font family */
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 字体族 / Font family */
     line-height: 1.6;      /* 行高倍数 / Line height multiplier */
     color: #000;            /* 文字颜色 / Text color */
-    background-color: #f8f9fa;  /* 背景颜色 / Background color */
+    background-color: #fff;  /* 背景颜色白色 / White background color */
 }
 
 /* ============================================
@@ -487,31 +487,66 @@ body {
     gap: 2rem;
 }
 
+/* News Item Layout / 新闻条目布局 */
 .news-item {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 2rem;
-    align-items: start;
+    display: grid;                          /* 网格布局 / Grid layout */
+    grid-template-columns: 140px 1fr;       /* 日期160px，内容自适应 / Date 160px, content auto */
+    gap: 2rem;                              /* 左右间距 / Gap between date and content */
+    align-items: start;                     /* 顶部对齐 / Top alignment */
+    margin-bottom: 1rem;                    /* 底部边距 / Bottom margin */
+    padding-bottom: 1rem;                   /* 底部内边距 / Bottom padding */
+    border-bottom: 1px solid #e0e0e0;      /* 底部分隔线 / Bottom separator */
 }
 
+/* Last News Item / 最后一条新闻 */
+.news-item:last-child {
+    margin-bottom: 0;                       /* 无底部边距 / No bottom margin */
+    padding-bottom: 0;                      /* 无底部内边距 / No bottom padding */
+    border-bottom: none;                    /* 无底部分隔线 / No bottom border */
+}
+
+/* News Date / 新闻日期 */
 .news-date {
-    color: #2c5aa0;
-    font-weight: bold;
-    font-size: 0.9rem;
+    color: #2c5aa0;                         /* 蓝色字体 / Blue color */
+    font-weight: 600;                       /* 字体加粗 / Bold */
+    font-size: 0.95rem;                     /* 字体大小 / Font size */
+    text-align: left;                       /* 左对齐 / Left align */
+    padding-right: 1rem;                   /* 右侧内边距 / Right padding */
+    border-right: 2px solid #e0e0e0;       /* 右侧分隔线 / Right separator */
+    display: flex;                          /* 弹性布局 / Flex layout */
+    flex-direction: column;                 /* 垂直排列 / Vertical direction */
 }
 
+.news-month-day {
+    display: block;                         /* 块级显示 / Block display */
+}
+
+.news-year {
+    display: block;                         /* 块级显示 / Block display */
+    font-size: 0.85rem;                     /* 年份字体稍小 / Slightly smaller for year */
+    color: #666;                            /* 年份颜色稍浅 / Lighter color for year */
+}
+
+/* News Content / 新闻内容 */
+.news-content {
+    display: flex;                          /* 弹性布局 / Flex layout */
+    flex-direction: column;                 /* 垂直排列 / Vertical direction */
+}
+
+/* News Title / 新闻标题 */
 .news-content h3 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
+    color: #2c3e50;                         /* 标题颜色 / Title color */
+    margin-top: 0;                          /* 无顶部边距 / No top margin */
+    margin-bottom: 0.5rem;                  /* 底部边距 / Bottom margin */
+    font-size: 1.2rem;                      /* 字体大小 / Font size */
+    font-weight: 600;                       /* 字体加粗 / Bold */
 }
 
+/* News Paragraph / 新闻段落 */
 .news-content p {
-    color: #000;
-    line-height: 1.6;
+    color: #000;                            /* 黑色字体 / Black color */
+    line-height: 1.5 !important;            /* 行高 / Line height */
+    margin-bottom: 0.3rem !important;       /* 段落间距 / Paragraph margin */
 }
 
 /* CV Page Styles */
@@ -1200,7 +1235,7 @@ body {
 /* Page Section Styles */
 .page-section {
     background-color: #fff;
-    padding: 4rem 0;
+    padding: 2rem 0;
     min-height: calc(100vh - 160px);
 }
 
@@ -1208,11 +1243,11 @@ body {
     font-size: 2.5rem;
     color: #2c3e50;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .content-area {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
