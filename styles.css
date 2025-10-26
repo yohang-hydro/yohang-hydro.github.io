@@ -1242,6 +1242,180 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* ============================================
+   RESEARCH PAGE - 研究页面
+   ============================================ */
+
+/* Research Grid Layout / 研究网格布局 */
+.research-grid {
+    display: flex;                        /* 弹性布局 / Flex layout */
+    flex-direction: column;               /* 垂直排列 / Vertical arrangement */
+    gap: 2rem;                           /* 卡片间距 / Card gap */
+    margin-top: 2rem;                    /* 顶部边距 / Top margin */
+}
+
+/* Research Card / 研究卡片 */
+.research-card {
+    display: block;                       /* 块级布局 / Block layout */
+    padding-top: 0rem;                    /* 顶部内边距 / Top padding */
+    margin-top: 0rem;                     /* 顶部外边距 / Top margin */
+    border-top: 1px solid #e0e0e0;        /* 顶部分割线 / Top divider */
+}
+
+.research-card:first-child {
+    border-top: none;                     /* 第一个卡片无分割线 / No divider for first card */
+    margin-top: 0;                        /* 第一个卡片无顶部外边距 / No top margin for first card */
+    padding-top: 0;                       /* 第一个卡片无顶部内边距 / No top padding for first card */
+}
+
+/* Research Card Horizontal Layout / 研究卡片横向布局 */
+.research-card-horizontal {
+    display: flex;                        /* 弹性布局 / Flex layout */
+    align-items: center;                  /* 垂直居中对齐 / Center alignment */
+    gap: 3rem;                           /* 左右间距 / Gap between content and image */
+}
+
+.research-card-horizontal .research-content {
+    flex: 1;                              /* 占据剩余空间 / Take remaining space */
+}
+
+.research-card-horizontal .research-image-container {
+    flex: 0 0 40%;                        /* 图片占40%宽度 / Image takes 40% width */
+    padding: 0;                           /* 移除内边距 / Remove padding */
+    margin-top: 0;                        /* 无顶部外边距 / No top margin */
+}
+
+/* Research Content / 研究内容 */
+.research-content {
+    padding: 2rem 2rem 1rem 2rem;        /* 内边距 / Padding */
+}
+
+.research-title {
+    font-size: 1.5rem;                    /* 标题字体大小 / Title font size */
+    color: #2c5aa0;                       /* 标题颜色 / Title color */
+    margin-bottom: 1rem;                  /* 底部边距 / Bottom margin */
+    font-weight: 600;                     /* 字体粗细 / Font weight */
+}
+
+.research-description {
+    color: #555;                          /* 描述文字颜色 / Description text color */
+    line-height: 1.5;                     /* 行高 / Line height */
+    font-size: 1rem;                      /* 字体大小 / Font size */
+    margin-bottom: 0.5rem;                /* 底部边距 / Bottom margin */
+}
+
+.research-list {
+    color: #555;                          /* 列表文字颜色 / List text color */
+    line-height: 1.15;                     /* 行高 / Line height */
+    font-size: 0.95rem;                   /* 字体大小 / Font size */
+    padding-left: 1.5rem;                 /* 左侧内边距 / Left padding */
+    margin-top: 0.5rem;                   /* 顶部边距 / Top margin */
+}
+
+.research-list li {
+    margin-bottom: 0.3rem;                /* 列表项间距 / List item spacing */
+}
+
+.research-list li:last-child {
+    margin-bottom: 0;                     /* 最后一项无底部边距 / No margin for last item */
+}
+
+/* Research Image Container / 研究图片容器 */
+.research-image-container {
+    padding: 1rem 2rem 2rem 2rem;        /* 内边距 / Padding */
+    display: flex;                        /* 弹性布局 / Flex layout */
+    justify-content: center;              /* 水平居中 / Horizontal center */
+    align-items: center;                  /* 垂直居中 / Vertical center */
+}
+
+.research-image-container img {
+    max-width: 100%;                      /* 最大宽度100% / Max width 100% */
+    height: auto;                         /* 高度自适应 / Auto height */
+    display: block;                       /* 块级显示 / Block display */
+}
+
+/* Research Publications / 研究相关论文 */
+.research-publications {
+    padding: 0 2rem 2rem 2rem;           /* 内边距 / Padding */
+    margin-top: 0.5rem;                   /* 顶部外边距 / Top margin */
+}
+
+/* Publications inside research-content (for horizontal layout) / 横向布局中content内的publications */
+.research-content .research-publications {
+    padding: 0;                           /* 无内边距 / No padding */
+    margin-top: 1.2rem;                   /* 顶部外边距 / Top margin */
+}
+
+.research-publications .publications-subtitle {
+    font-size: 0.9rem;                    /* 字体大小 / Font size */
+    color: #666;                          /* 标题颜色 / Title color */
+    margin-bottom: 0.5rem;                /* 底部边距 / Bottom margin */
+    font-weight: 600;                     /* 字体粗细 / Font weight */
+}
+
+.research-publications .publications-list {
+    list-style: disc;                     /* 圆点列表样式 / Disc list style */
+    padding-left: 1.5rem;                 /* 左侧内边距 / Left padding */
+    margin: 0;                            /* 无外边距 / No margin */
+    display: block;                       /* 块级显示，覆盖其他定义 / Block display */
+}
+
+.research-publications .publications-list li {
+    margin-bottom: 0.5rem;                /* 列表项间距 / List item spacing */
+    line-height: 1.15;                    /* 行高 / Line height */
+    padding: 0;                           /* 无内边距 / No padding */
+}
+
+.research-publications .publications-list li::marker {
+    font-size: 0.8rem;                    /* 圆点大小 / Bullet size */
+}
+
+.research-publications .publications-list li:last-child {
+    margin-bottom: 0;                     /* 最后一项无底部边距 / No margin for last item */
+}
+
+.research-publications .publications-list a {
+    color: #555;                          /* 链接颜色 / Link color */
+    text-decoration: none;                /* 无下划线 / No underline */
+    font-size: 0.85rem;                   /* 字体大小 / Font size */
+    transition: color 0.3s ease;          /* 颜色过渡 / Color transition */
+    display: inline;                      /* 内联显示 / Inline display */
+}
+
+.research-publications .publications-list a:hover {
+    color: #333;                          /* 悬停颜色 / Hover color */
+    text-decoration: underline;           /* 悬停时添加下划线 / Add underline on hover */
+}
+
+.research-publications .publications-list em {
+    font-style: italic;                   /* 斜体 / Italic */
+    color: #777;                          /* 期刊名颜色 / Journal name color */
+}
+
+/* BRAIN GIFs Row Layout / BRAIN GIF单行布局 */
+.brain-gifs-row {
+    display: grid;                        /* 网格布局 / Grid layout */
+    grid-template-columns: 1fr 1fr 1fr 1.2fr; /* Gauge, Satellite, Radar, BRAIN - 可调整比例 */
+    gap: 1rem;                           /* 间距 / Gap */
+    padding: 0.5rem 2rem 0.5rem 2rem;        /* 内边距(上 右 下 左) / Padding (top right bottom left) */
+    align-items: center;                  /* 垂直居中 / Vertical center */
+}
+
+/* Outcome Item Styles / 成果项样式 */
+.outcome-item {
+    overflow: hidden;                     /* 隐藏溢出 / Hide overflow */
+}
+
+.outcome-item img {
+    width: 100%;                          /* 宽度100% / 100% width */
+    height: auto;                         /* 高度自适应 / Auto height */
+    display: block;                       /* 块级显示 / Block display */
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - 响应式设计
+   ============================================ */
+
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -1266,5 +1440,40 @@ body {
 
     .content-area {
         padding: 0 1rem;
+    }
+    
+    /* Research Card Responsive / 研究卡片响应式 */
+    .research-card {
+        flex-direction: column;           /* 移动端垂直排列 / Vertical on mobile */
+    }
+    
+    .research-card-horizontal {
+        flex-direction: column;           /* 移动端垂直排列 / Vertical on mobile */
+    }
+    
+    .research-card-horizontal .research-image-container {
+        flex: 0 0 auto;                   /* 移动端自动宽度 / Auto width on mobile */
+        width: 100%;                      /* 移动端宽度100% / 100% width on mobile */
+        padding: 1rem 2rem 2rem 2rem;    /* 恢复内边距 / Restore padding */
+    }
+    
+    .research-image {
+        width: 100%;                      /* 移动端宽度100% / 100% width on mobile */
+        min-width: 100%;                  /* 移动端最小宽度100% / 100% min-width on mobile */
+        height: 200px;                    /* 移动端高度减小 / Smaller height on mobile */
+    }
+    
+    .research-content {
+        padding: 1.5rem;                  /* 移动端减小内边距 / Smaller padding on mobile */
+    }
+    
+    .research-title {
+        font-size: 1.3rem;                /* 移动端减小标题 / Smaller title on mobile */
+    }
+    
+    /* BRAIN GIFs Row Responsive / BRAIN GIF行响应式 */
+    .brain-gifs-row {
+        grid-template-columns: repeat(2, 1fr); /* 移动端2列 / 2 columns on mobile */
+        gap: 0.5rem;                      /* 减小间距 / Smaller gap */
     }
 }
