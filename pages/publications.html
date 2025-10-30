@@ -61,7 +61,7 @@
                 <h2 class="section-subtitle" style="display: flex; justify-content: space-between; align-items: center;">
                     <span>Journal Publications 
                         <span style="font-size: 0.6em; font-weight: normal;">
-                            (Last updated: <span id="last-updated-date"></span>)
+                            (Last updated: <span id="last-updated-date">October 26, 2025</span>)
                         </span>
                     </span>
                     <a href="https://scholar.google.com/citations?user=lvwCoy8AAAAJ&hl=en" 
@@ -537,20 +537,8 @@
 
     <script src="../script.js"></script>
     <script>
-        // Update last updated time
-        // 更新最后更新时间
         document.addEventListener('DOMContentLoaded', function() {
-            const lastUpdatedDate = document.getElementById('last-updated-date');
-            if (lastUpdatedDate) {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric',
-                    timeZone: 'UTC'
-                };
-                lastUpdatedDate.textContent = now.toLocaleDateString('en-US', options);
-            }
+            // 保留：不在此处设置最后更新时间，使用构建脚本注入 October 26, 2025
             
             // Count publications by year
             // 按年份统计论文数量
