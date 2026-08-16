@@ -1445,26 +1445,6 @@ body {
     color: #777;                          /* 期刊名颜色 / Journal name color */
 }
 
-/* BRAIN GIFs Row Layout / BRAIN GIF单行布局 */
-.brain-gifs-row {
-    display: grid;                        /* 网格布局 / Grid layout */
-    grid-template-columns: 1fr 1fr 1fr 1.2fr; /* Gauge, Satellite, Radar, BRAIN - 可调整比例 */
-    gap: 1rem;                           /* 间距 / Gap */
-    padding: 0.5rem 2rem 0.5rem 2rem;        /* 内边距(上 右 下 左) / Padding (top right bottom left) */
-    align-items: center;                  /* 垂直居中 / Vertical center */
-}
-
-/* Outcome Item Styles / 成果项样式 */
-.outcome-item {
-    overflow: hidden;                     /* 隐藏溢出 / Hide overflow */
-}
-
-.outcome-item img {
-    width: 100%;                          /* 宽度100% / 100% width */
-    height: auto;                         /* 高度自适应 / Auto height */
-    display: block;                       /* 块级显示 / Block display */
-}
-
 /* ============================================
    RESPONSIVE DESIGN - 响应式设计
    ============================================ */
@@ -1522,12 +1502,6 @@ body {
     
     .research-title {
         font-size: 1.3rem;                /* 移动端减小标题 / Smaller title on mobile */
-    }
-    
-    /* BRAIN GIFs Row Responsive / BRAIN GIF行响应式 */
-    .brain-gifs-row {
-        grid-template-columns: repeat(2, 1fr); /* 移动端2列 / 2 columns on mobile */
-        gap: 0.5rem;                      /* 减小间距 / Smaller gap */
     }
 }
 
