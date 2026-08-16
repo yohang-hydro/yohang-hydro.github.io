@@ -1,6 +1,6 @@
 # About Me
 
-Yuhang Zhang is a Postdoctoral Research Fellow in the Department of Infrastructure Engineering at the University of Melbourne, working with Professor QJ Wang. He completed his PhD in Physical Geography at the Faculty of Geographical Science, Beijing Normal University, China.
+Yuhang Zhang is a Postdoctoral Research Fellow in the Department of Infrastructure Engineering at the University of Melbourne, working with Profesor Dongryeol Ryu and Professor QJ Wang. He completed his PhD in Physical Geography at the Faculty of Geographical Science, Beijing Normal University, China.
 
 **Research Interests:**
 - Precipitation analysis and forecasting
