@@ -140,8 +140,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // 更新期刊列表
          const journalListElement = document.getElementById('journal-list');
          if (journalListElement) {
-             // 定义高影响力期刊的优先级顺序（按重要程度排序）
-             const highImpactJournals = [
+             // 高影响力期刊在前；组内按论文数量从多到少，数量相同则按名称字母顺序
+             const highImpactJournals = new Set([
                 'WIREs Water',
                 'Geophysical Research Letters',
                 'Water Resources Research',
@@ -151,29 +151,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Journal of Hydrometeorology',
                 'Science of The Total Environment',
                 'Earth and Space Science'
-             ];
-             
-             // 分离高影响力期刊和其他期刊
-             const highImpact = [];
-             const otherJournals = [];
-             
-             Object.entries(journalCounts).forEach(([name, count]) => {
-                 const index = highImpactJournals.indexOf(name);
-                 if (index !== -1) {
-                     highImpact.push({ index, name, count });
-                 } else {
-                     otherJournals.push({ name, count });
-                 }
-             });
-             
-             // 高影响力期刊按预定义顺序排序
-             highImpact.sort((a, b) => a.index - b.index);
-             
-             // 其他期刊按字母顺序排序
-             otherJournals.sort((a, b) => a.name.localeCompare(b.name));
-             
-             // 合并期刊列表（高影响力在前，其他在后）
-             const allJournals = [...highImpact, ...otherJournals];
+             ]);
+
+             const allJournals = Object.entries(journalCounts)
+                 .map(([name, count]) => ({ name, count }))
+                 .sort((a, b) => {
+                     const aHigh = highImpactJournals.has(a.name) ? 0 : 1;
+                     const bHigh = highImpactJournals.has(b.name) ? 0 : 1;
+                     if (aHigh !== bHigh) {
+                         return aHigh - bHigh;
+                     }
+                     if (b.count !== a.count) {
+                         return b.count - a.count;
+                     }
+                     return a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
+                 });
              
              // 格式化并显示
              const formattedJournals = allJournals
