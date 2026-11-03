@@ -1771,7 +1771,7 @@ body {
 .scholar-tick,
 .scholar-year {
     fill: #5c6775;
-    font-size: 12px;
+    font-size: 8px;
 }
 
 .scholar-tick-citations {
@@ -1783,7 +1783,7 @@ body {
 }
 
 .scholar-axis {
-    font-size: 13px;
+    font-size: 8px;
     font-weight: 600;
 }
 
