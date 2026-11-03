@@ -1634,6 +1634,11 @@ body {
     text-align: center;                   /* 文字居中 / Text center */
 }
 
+.visitor-map-frame {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
 .visitor-map-item #mapmyvisitors-widget {
     max-width: 100%;
     cursor: default;
