@@ -1,0 +1,79 @@
+{
+  "updated": "2026-11-03",
+  "profileUrl": "https://scholar.google.com/citations?user=lvwCoy8AAAAJ&hl=en",
+  "publications": 49,
+  "citations": 671,
+  "hIndex": 14,
+  "i10Index": 16,
+  "citationsByYear": [
+    {
+      "year": 2020,
+      "citations": 2
+    },
+    {
+      "year": 2021,
+      "citations": 12
+    },
+    {
+      "year": 2022,
+      "citations": 26
+    },
+    {
+      "year": 2023,
+      "citations": 78
+    },
+    {
+      "year": 2024,
+      "citations": 116
+    },
+    {
+      "year": 2025,
+      "citations": 207
+    },
+    {
+      "year": 2026,
+      "citations": 226
+    }
+  ],
+  "publicationsByYear": [
+    {
+      "year": 2019,
+      "publications": 8
+    },
+    {
+      "year": 2020,
+      "publications": 3
+    },
+    {
+      "year": 2021,
+      "publications": 9
+    },
+    {
+      "year": 2022,
+      "publications": 6
+    },
+    {
+      "year": 2023,
+      "publications": 2
+    },
+    {
+      "year": 2024,
+      "publications": 6
+    },
+    {
+      "year": 2025,
+      "publications": 9
+    },
+    {
+      "year": 2026,
+      "publications": 6
+    }
+  ],
+  "snapshots": [
+    {
+      "date": "2026-11-03",
+      "citations": 671,
+      "publications": 49
+    }
+  ]
+}

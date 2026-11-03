@@ -1,0 +1,36 @@
+name: Update Google Scholar stats
+
+on:
+  schedule:
+    - cron: "0 18 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch Google Scholar stats
+        run: python3 scripts/update-scholar.py
+
+      - name: Commit if the numbers changed
+        run: |
+          if [[ -n "$(git status --porcelain data/scholar.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/scholar.json
+            git commit -m "Update Google Scholar citation stats."
+            git push
+          else
+            echo "No change to the monthly snapshot."
+          fi

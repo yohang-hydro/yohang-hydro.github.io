@@ -174,4 +174,260 @@ document.addEventListener('DOMContentLoaded', function() {
              journalListElement.innerHTML = formattedJournals.join(', ') + '.';
          }
     }
+
+    function scholarAxisScale(maxValue) {
+        const rough = Math.max(maxValue, 1) / 4;
+        const power = 10 ** Math.floor(Math.log10(rough));
+        const error = rough / power;
+        const step = (error >= 7.5 ? 10 : error >= 3.5 ? 5 : error >= 1.5 ? 2 : 1) * power;
+        const max = Math.ceil(maxValue / step) * step;
+        const values = [];
+        for (let value = 0; value <= max; value += step) {
+            values.push(value);
+        }
+        return { max, values };
+    }
+
+    function scholarSquare(x, y, size, className) {
+        const half = size / 2;
+        return `<rect class="${className}" x="${(x - half).toFixed(1)}" y="${(y - half).toFixed(1)}" width="${size}" height="${size}"></rect>`;
+    }
+
+    function scholarDiamond(x, y, size, className) {
+        const half = size / 2;
+        return `<polygon class="${className}" points="${x.toFixed(1)},${(y - half).toFixed(1)} ${(x + half).toFixed(1)},${y.toFixed(1)} ${x.toFixed(1)},${(y + half).toFixed(1)} ${(x - half).toFixed(1)},${y.toFixed(1)}"></polygon>`;
+    }
+
+    function scholarMonthPosition(date) {
+        const [year, month] = String(date).split('-').map(Number);
+        return year + (month - 6.5) / 12;
+    }
+
+    function scholarSeriesChart(points, series) {
+        const width = 700;
+        const height = series.showYears ? 148 : 118;
+        const pad = { left: 64, right: 22, top: 10, bottom: series.showYears ? 24 : 6 };
+        const innerW = width - pad.left - pad.right;
+        const innerH = height - pad.top - pad.bottom;
+        const snapshots = Array.isArray(series.snapshots) ? series.snapshots : [];
+        const plotted = [];
+        const yearsWithSnapshots = new Set(snapshots.map(item => Number(String(item.date).slice(0, 4))));
+        points.forEach(point => {
+            if (yearsWithSnapshots.has(point.year)) {
+                return;
+            }
+            if (point[series.key] !== null) {
+                plotted.push({ x: point.year, year: point.year, value: point[series.key] });
+            }
+        });
+        snapshots.forEach(item => {
+            const value = Number(item[series.key]);
+            if (!Number.isFinite(value)) {
+                return;
+            }
+            plotted.push({
+                x: scholarMonthPosition(item.date),
+                year: Number(String(item.date).slice(0, 4)),
+                value,
+            });
+        });
+        plotted.sort((a, b) => a.x - b.x);
+        const values = plotted.map(point => point.value);
+        const scale = scholarAxisScale(Math.max(...values, 0));
+        const maxX = Math.max(...plotted.map(point => point.x), points[points.length - 1].year);
+        const xMin = points[0].year - 0.2;
+        const xMax = maxX + 0.2;
+        const xAt = position => pad.left + ((position - xMin) / (xMax - xMin)) * innerW;
+        const yAt = value => pad.top + innerH - (value / scale.max) * innerH;
+        const grid = scale.values.map(value => {
+            const y = yAt(value).toFixed(1);
+            return `<line class="scholar-grid" x1="${pad.left}" y1="${y}" x2="${width - pad.right}" y2="${y}"></line>
+                <text class="scholar-tick ${series.tickClass}" x="${pad.left - 8}" y="${y}" text-anchor="end" dominant-baseline="middle">${value}</text>`;
+        }).join('');
+        const line = plotted
+            .map(point => `${xAt(point.x).toFixed(1)},${yAt(point.value).toFixed(1)}`)
+            .join(' ');
+        const baseline = yAt(0).toFixed(1);
+        const area = plotted.length
+            ? `${xAt(plotted[0].x).toFixed(1)},${baseline} ${line} ${xAt(plotted[plotted.length - 1].x).toFixed(1)},${baseline}`
+            : '';
+        const areaClass = series.seriesClass.replace('scholar-series', 'scholar-area');
+        const markers = plotted.map(point => {
+            const x = xAt(point.x);
+            const y = yAt(point.value);
+            return `<g class="scholar-point" tabindex="0" data-tip="${point.value}">
+                ${series.marker(x, y)}
+                <circle class="scholar-hit" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="12"></circle>
+            </g>`;
+        }).join('');
+        const years = series.showYears
+            ? points.map(point =>
+                `<text class="scholar-year" x="${xAt(point.year).toFixed(1)}" y="${height - 4}" text-anchor="middle">${point.year}</text>`
+            ).join('')
+            : '';
+        const midY = pad.top + innerH / 2;
+        const label = plotted
+            .map(point => `${point.year}: ${point.value} cumulative ${series.name.toLowerCase()}`)
+            .join(', ');
+        return `<svg class="scholar-line" viewBox="0 0 ${width} ${height}" role="group" aria-label="${label}">
+            <polygon class="${areaClass}" points="${area}"></polygon>
+            ${grid}
+            <text class="scholar-axis ${series.axisClass}" x="16" y="${midY}" text-anchor="middle" transform="rotate(-90 16 ${midY})">${series.name}</text>
+            <polyline class="scholar-series ${series.seriesClass}" points="${line}" fill="none"></polyline>
+            ${markers}
+            ${years}
+        </svg>`;
+    }
+
+    function scholarTrajectoryCharts(points, snapshots) {
+        const citations = scholarSeriesChart(points, {
+            key: 'citations',
+            name: 'Citations',
+            tickClass: 'scholar-tick-citations',
+            axisClass: 'scholar-axis-citations',
+            seriesClass: 'scholar-series-citations',
+            showYears: false,
+            snapshots,
+            marker: (x, y) => scholarSquare(x, y, 3.5, 'scholar-marker scholar-marker-citations'),
+        });
+        const publications = scholarSeriesChart(points, {
+            key: 'publications',
+            name: 'Publications',
+            tickClass: 'scholar-tick-publications',
+            axisClass: 'scholar-axis-publications',
+            seriesClass: 'scholar-series-publications',
+            showYears: true,
+            snapshots,
+            marker: (x, y) => scholarDiamond(x, y, 4.5, 'scholar-marker scholar-marker-publications'),
+        });
+        return citations + publications;
+    }
+
+    function scholarShowTip(chart, point) {
+        let tip = chart.querySelector('.scholar-tooltip');
+        if (!tip) {
+            tip = document.createElement('div');
+            tip.className = 'scholar-tooltip';
+            tip.hidden = true;
+            chart.appendChild(tip);
+        }
+        let guide = chart.querySelector('.scholar-guide');
+        if (!guide) {
+            guide = document.createElement('div');
+            guide.className = 'scholar-guide';
+            guide.hidden = true;
+            chart.appendChild(guide);
+        }
+        const host = chart.getBoundingClientRect();
+        const mark = point.getBoundingClientRect();
+        const panels = chart.querySelectorAll('.scholar-line');
+        const first = panels[0].getBoundingClientRect();
+        const last = panels[panels.length - 1].getBoundingClientRect();
+        const yearBand = last.height * (24 / 148);
+        const center = mark.left + mark.width / 2 - host.left;
+        tip.textContent = point.getAttribute('data-tip');
+        tip.style.left = `${center}px`;
+        tip.style.top = `${mark.top - host.top}px`;
+        tip.hidden = false;
+        guide.style.left = `${center}px`;
+        guide.style.top = `${first.top - host.top}px`;
+        guide.style.height = `${last.bottom - yearBand - first.top}px`;
+        guide.hidden = false;
+    }
+
+    function scholarHideTip(chart, next) {
+        if (next && next.closest && next.closest('.scholar-point')) {
+            scholarShowTip(chart, next.closest('.scholar-point'));
+            return;
+        }
+        const tip = chart.querySelector('.scholar-tooltip');
+        const guide = chart.querySelector('.scholar-guide');
+        if (tip) {
+            tip.hidden = true;
+        }
+        if (guide) {
+            guide.hidden = true;
+        }
+    }
+
+    function scholarEnableTips(chart) {
+        chart.addEventListener('pointerover', event => {
+            const point = event.target.closest('.scholar-point');
+            if (point) {
+                scholarShowTip(chart, point);
+            }
+        });
+        chart.addEventListener('pointerout', event => {
+            if (event.target.closest('.scholar-point')) {
+                scholarHideTip(chart, event.relatedTarget);
+            }
+        });
+        chart.addEventListener('focusin', event => {
+            const point = event.target.closest('.scholar-point');
+            if (point) {
+                scholarShowTip(chart, point);
+            }
+        });
+        chart.addEventListener('focusout', event => {
+            scholarHideTip(chart, event.relatedTarget);
+        });
+    }
+
+    const scholarPanel = document.getElementById('scholar-panel');
+    if (scholarPanel) {
+        fetch('../data/scholar.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Scholar stats are unavailable');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const citationYears = Array.isArray(data.citationsByYear) ? data.citationsByYear : [];
+                const publicationYears = Array.isArray(data.publicationsByYear) ? data.publicationsByYear : [];
+                if (citationYears.length === 0 || publicationYears.length === 0) {
+                    return;
+                }
+
+                const citationCounts = new Map(citationYears.map(item => [Number(item.year), Number(item.citations) || 0]));
+                const publicationCounts = new Map(publicationYears.map(item => [Number(item.year), Number(item.publications) || 0]));
+                const citationStart = Math.min(...citationCounts.keys());
+                const firstYear = Math.min(citationStart, ...publicationCounts.keys());
+                const lastYear = Math.max(...citationCounts.keys(), ...publicationCounts.keys());
+                let citationTotal = 0;
+                let publicationTotal = 0;
+                const points = [];
+                for (let year = firstYear; year <= lastYear; year += 1) {
+                    publicationTotal += publicationCounts.get(year) || 0;
+                    const hasCitations = year >= citationStart;
+                    if (hasCitations) {
+                        citationTotal += citationCounts.get(year) || 0;
+                    }
+                    points.push({
+                        year,
+                        citations: hasCitations ? citationTotal : null,
+                        publications: publicationTotal,
+                    });
+                }
+                const snapshots = (Array.isArray(data.snapshots) ? data.snapshots : []).filter(item =>
+                    /^\d{4}-\d{2}-\d{2}$/.test(String(item.date))
+                    && Number.isFinite(Number(item.citations))
+                    && Number.isFinite(Number(item.publications))
+                );
+                const chart = document.getElementById('scholar-chart');
+                chart.innerHTML = scholarTrajectoryCharts(points, snapshots);
+                scholarEnableTips(chart);
+
+                const updated = String(data.updated || '').split('-');
+                const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'];
+                const updatedLabel = updated.length === 3
+                    ? `${Number(updated[2])} ${months[Number(updated[1]) - 1]} ${updated[0]}`
+                    : data.updated;
+                document.getElementById('scholar-note').textContent =
+                    `Output trajectory, including papers not listed on this page. Update ${updatedLabel}.`;
+                scholarPanel.hidden = false;
+            })
+            .catch(() => {});
+    }
 });
