@@ -1636,6 +1636,7 @@ body {
 
 .visitor-map-item #mapmyvisitors-widget {
     max-width: 100%;
+    cursor: default;
 }
 
 .visitor-tracker {

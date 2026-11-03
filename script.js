@@ -430,4 +430,33 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(() => {});
     }
+
+    const visitorMap = document.querySelector('.visitor-map-item');
+    if (visitorMap) {
+        const disarmVisitorMap = () => {
+            const link = visitorMap.querySelector('#mapmyvisitors-widget');
+            if (!link) {
+                return;
+            }
+            if (link.hasAttribute('href')) {
+                link.removeAttribute('href');
+            }
+            if (link.hasAttribute('target')) {
+                link.removeAttribute('target');
+            }
+        };
+        visitorMap.addEventListener('click', event => {
+            if (event.target.closest('#mapmyvisitors-widget')) {
+                event.preventDefault();
+            }
+        });
+        const visitorMapObserver = new MutationObserver(disarmVisitorMap);
+        visitorMapObserver.observe(visitorMap, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['href', 'target'],
+        });
+        disarmVisitorMap();
+    }
 });
